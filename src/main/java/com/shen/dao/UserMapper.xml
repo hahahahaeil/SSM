@@ -7,8 +7,8 @@
 
     <!-- 增加一个用户 -->
     <insert id="addUser" parameterType="com.shen.pojo.Users">
-        INSERT INTO usertable (username, password, registration_username, created_at)
-        VALUES (#{username}, #{password}, #{registrationUsername}, #{createdAt})
+        INSERT INTO usertable (username,password)
+        VALUES (#{username}, #{password})
     </insert>
 
     <!-- 删除一个用户 -->
@@ -20,23 +20,20 @@
     <update id="updateUser" parameterType="com.shen.pojo.Users">
         UPDATE usertable
         SET username = #{username},
-        password = #{password},
-        registration_username = #{registrationUsername},
-        created_at = #{createdAt}
+            password = #{password}
         WHERE id = #{id}
     </update>
 
     <!-- 查询一个用户 -->
     <select id="getUserById" parameterType="int" resultType="com.shen.pojo.Users">
-        SELECT id, username, password, registration_username, created_at
+        SELECT id,username,password
         FROM usertable
         WHERE id = #{id}
     </select>
 
     <!-- 查询所有用户 -->
     <select id="getAllUsers" resultType="com.shen.pojo.Users">
-        SELECT id, username, password, registration_username, created_at
-        FROM usertable
+        select * from usertable
     </select>
 
 </mapper>
