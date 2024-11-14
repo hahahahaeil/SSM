@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
@@ -5,7 +6,7 @@
     <style>
         /* body中心化 */
         body {
-            background-image: url("/images/Background.jpg");
+            background-image: url("<c:url value='/images/Background.jpg' />");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -78,16 +79,23 @@
 <body>
 <div class="container">
     <h1>注册</h1>
-    <form action="/register" method="post">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" value="Register">
+    <!-- 注册表单 -->
+    <form action="<c:url value='/user/addUser' />" method="POST">
+        <div>
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit"class="login-btn">注册</button>
+        </div>
     </form>
 
     <!-- 去登录按钮 -->
-    <a href="/login" class="login-btn">To login</a>
+    <a href="${pageContext.request.contextPath}/user/login" class="login-btn" >去登录</a>
 
 </div>
 </body>

@@ -39,8 +39,8 @@ public class UserServiceImpl implements UserService {
 
     // 查询一个用户
     @Override
-    public Users getUserById(int id) {
-        return userMapper.getUserById(id);
+    public Users getUserByname(String name) {
+        return userMapper.getUserByname(name);
     }
 
     // 查询所有用户

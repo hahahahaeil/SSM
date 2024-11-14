@@ -7,6 +7,7 @@
     <style type="text/css">
         /* 设置整体页面背景 */
         body {
+            background-image: url("<c:url value='/images/Background.jpg' />");
             font-family: Arial, sans-serif;
             background-color: #f4f7fa;
             margin: 0;

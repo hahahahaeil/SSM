@@ -15,7 +15,7 @@ public interface UserMapper {
     void updateUser(Users user);
 
     // 查询一个用户
-    Users getUserById(int id);
+    Users getUserByname(String name);
 
     // 查询所有用户
     List<Users> getAllUsers();

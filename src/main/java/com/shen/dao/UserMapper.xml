@@ -25,10 +25,8 @@
     </update>
 
     <!-- 查询一个用户 -->
-    <select id="getUserById" parameterType="int" resultType="com.shen.pojo.Users">
-        SELECT id,username,password
-        FROM usertable
-        WHERE id = #{id}
+    <select id="getUserByname" resultType="com.shen.pojo.Users">
+        SELECT * FROM usertable WHERE username = #{username}
     </select>
 
     <!-- 查询所有用户 -->
