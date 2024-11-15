@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shen.dao.CardMapper">
+
+    <!-- 查询所有名片记录 -->
+    <select id="selectAllCards" resultType="com.shen.pojo.Cards">
+        SELECT * FROM cardtable
+    </select>
+
+    <!-- 根据用户ID查询该用户的所有名片 -->
+    <select id="selectCardsByUserId" parameterType="int" resultType="com.shen.pojo.Cards">
+        SELECT * FROM cardtable WHERE user_id = #{userId}
+    </select>
+
+    <!-- 根据名片ID查询名片 -->
+    <select id="selectCardById" parameterType="int" resultType="com.shen.pojo.Cards">
+        SELECT * FROM cardtable WHERE id = #{id}
+    </select>
+
+    <!-- 插入一条名片记录 -->
+    <insert id="insertCard" parameterType="com.shen.pojo.Cards" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO cardtable (name, phone, email, company, position, address, user_id)
+        VALUES (#{name}, #{phone}, #{email}, #{company}, #{position}, #{address}, #{user_id})
+    </insert>
+
+    <!-- 更新名片信息 -->
+    <update id="updateCard" parameterType="com.shen.pojo.Cards">
+        UPDATE cardtable
+        SET name = #{name}, phone = #{phone}, email = #{email}, company = #{company},
+            position = #{position}, address = #{address}, logo = #{logo}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 根据名片ID删除名片 -->
+    <delete id="deleteCardById" parameterType="int">
+        DELETE FROM cardtable WHERE id = #{id}
+    </delete>
+
+</mapper>

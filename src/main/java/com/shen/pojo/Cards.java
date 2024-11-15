@@ -18,8 +18,5 @@ public class Cards {
     private String company;        // 公司
     private String position;       // 职位
     private String address;        // 地址
-    private byte[] logo;           // logo 图片
     private int user_id;            // 外键，用户ID
-    private Timestamp created_at;   // 创建时间
-
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -41,19 +42,20 @@ public class UserController {
     public String toMain() {
         return "main";
     }
+
     @PostMapping("/login")
     public String doLogin(@RequestParam("username") String username,
                           @RequestParam("password") String password,
-                          Model model) {
+                          HttpSession session, Model model) {
         Users user = userService.getUserByname(username);
         if (user != null && user.getPassword().equals(password)) {
-            // 验证通过，跳转到主页面
+            // 登录成功，将 userId 存储在 session 中
+            session.setAttribute("id", user.getId());
             model.addAttribute("user", user);  // 将用户信息传递到主页面
-            return "main";  // 注册成功后重定向到登录页面
+            return "main";  // 登录成功后跳转到 cardController
         } else {
-            // 验证失败，返回登录页面并显示错误信息
             model.addAttribute("error", "账号或密码错误");
-            return "register";
+            return "login";  // 登录失败返回登录页面
         }
     }
 

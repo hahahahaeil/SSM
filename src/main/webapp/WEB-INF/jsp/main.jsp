@@ -111,7 +111,7 @@
 
   <div class="modules">
     <!-- 第一排模块 -->
-    <a href="/cardManagement" class="module-link">
+    <a href="${pageContext.request.contextPath}/card/list" class="module-link">
       名片管理
       <div class="module-description">管理和编辑你的名片</div>
     </a>
