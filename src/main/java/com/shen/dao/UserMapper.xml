@@ -5,7 +5,18 @@
 
 <mapper namespace="com.shen.dao.UserMapper">
 
-    <!-- 增加一个用户 -->
+
+    <!-- 通过用户ID查询用户 -->
+    <select id="getUserById" resultType="com.shen.pojo.Users">
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+    <!-- 更新密码 -->
+    <update id="upPassword" parameterType="com.shen.pojo.Users">
+        UPDATE usertable
+        SET password = #{password}
+        WHERE id = #{id}
+    </update>
+
     <insert id="addUser" parameterType="com.shen.pojo.Users">
         INSERT INTO usertable (username,password)
         VALUES (#{username}, #{password})

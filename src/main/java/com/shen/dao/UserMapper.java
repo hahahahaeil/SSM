@@ -1,10 +1,16 @@
 package com.shen.dao;
 
 import com.shen.pojo.Users;
+
 import java.util.List;
 
 public interface UserMapper {
 
+
+    // 通过用户 ID 查询用户
+    Users getUserById(Integer id);
+    // 通过用户ID更新密码
+    void updatePassword(Users user);
     // 增加一个用户
     void addUser(Users user);
 

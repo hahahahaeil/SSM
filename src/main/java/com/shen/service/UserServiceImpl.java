@@ -13,12 +13,17 @@ public class UserServiceImpl implements UserService {
     // Service 层调用 DAO 层，组合 UserMapper
     private UserMapper userMapper;
 
+
     // 构造器注入或 Setter 注入（这里使用的是 Setter 注入）
     @Autowired
     public void setUserMapper(UserMapper userMapper) {
         this.userMapper = userMapper;
     }
 
+    @Override
+    public int getCurrentUserId(Users user) {
+        return user.getId();
+    }
     // 增加一个用户
     @Override
     public void addUser(Users user) {
@@ -36,6 +41,7 @@ public class UserServiceImpl implements UserService {
     public void updateUser(Users user) {
         userMapper.updateUser(user);
     }
+
 
     // 查询一个用户
     @Override

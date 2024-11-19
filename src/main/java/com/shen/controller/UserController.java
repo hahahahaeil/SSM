@@ -95,7 +95,7 @@ public class UserController {
         // 更新密码
         user.setPassword(password);  // 设置新密码
 
-        userService.updateUser(user);  // 调用updateUser方法更新密码
+       userService.updateUser(user);  // 调用updateUser方法更新密码
         return "redirect:/user/main";
     }
 

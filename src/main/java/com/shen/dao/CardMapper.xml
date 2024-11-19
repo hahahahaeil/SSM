@@ -27,7 +27,7 @@
     <update id="updateCard" parameterType="com.shen.pojo.Cards">
         UPDATE cardtable
         SET name = #{name}, phone = #{phone}, email = #{email}, company = #{company},
-            position = #{position}, address = #{address}, logo = #{logo}
+            position = #{position}, address = #{address}
         WHERE id = #{id}
     </update>
 

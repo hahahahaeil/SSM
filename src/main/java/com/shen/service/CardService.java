@@ -1,6 +1,7 @@
 package com.shen.service;
 
 import com.shen.pojo.Cards;
+
 import java.util.List;
 
 public interface CardService {
@@ -22,4 +23,7 @@ public interface CardService {
 
     // 根据名片ID删除名片
     int deleteCardById(int id);
+
+
+
 }

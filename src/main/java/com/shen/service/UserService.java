@@ -6,6 +6,9 @@ import java.util.List;
 
 public interface UserService {
 
+//    获取当前用户的id
+    int getCurrentUserId(Users user);
+
     // 增加一个用户
     void addUser(Users user);
 
@@ -20,4 +23,7 @@ public interface UserService {
 
     // 查询所有用户
     List<Users> getAllUsers();
+
+    //    更新密码
+//    void updatePassword(int id,String newPassword);
 }
