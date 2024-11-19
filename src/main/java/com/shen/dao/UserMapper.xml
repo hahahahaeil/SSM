@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shen.dao.UserMapper">
+
+    <!-- 增加一个用户 -->
+    <insert id="addUser" parameterType="com.shen.pojo.Users">
+        INSERT INTO usertable (username,password)
+        VALUES (#{username}, #{password})
+    </insert>
+
+    <!-- 删除一个用户 -->
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM usertable WHERE id = #{id}
+    </delete>
+
+    <!-- 更新一个用户 -->
+    <update id="updateUser" parameterType="com.shen.pojo.Users">
+        UPDATE usertable
+        SET username = #{username},
+            password = #{password}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 查询一个用户 -->
+    <select id="getUserByname" resultType="com.shen.pojo.Users">
+        SELECT * FROM usertable WHERE username = #{username}
+    </select>
+
+    <!-- 查询所有用户 -->
+    <select id="getAllUsers" resultType="com.shen.pojo.Users">
+        select * from usertable
+    </select>
+
+</mapper>
